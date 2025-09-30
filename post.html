@@ -2,6 +2,13 @@
 <html>
     <head>
         <style>
+            /* Create two unequal colums that floats next to each other */
+            .Post_Row{
+                display: grid;
+                grid-template-columns: 0.1fr 0.9fr;
+                margin-bottom: 20px;
+            }
+            /* Define the font size & color for the body, header and emphasis */
             body {
                 color: white;
                 background-color: black;
@@ -12,17 +19,26 @@
             em {
                 color: dodgerblue
             }
+            .Photo_LeftColumn{
+                width: 100%;
+            }
         </style>
     </head>
 
     <body>
+        <!--Post #2-->
         <h1> Hiring 2025#1: Two master internships in Geotechnical & Hydrodynamics </h1>
         <em> October 1st, 2025 </em>
-        <p> </p>
-        <hr>
+        <div class="Post_Row">
+            <div> <img class="Photo_LeftColumn" src="image/SLOOP_logo.png"> </div>
+            <div> <p> Text </p></div>     
+        </div>
+        <!--Post #1-->
         <h1> Project PI#1: Stokastic Load on Offshore Piles (SLOOP) </h1>
         <em> May 22nd, 2025 </em>
-        <p> SLOOP Project receives funding from ORACLE Labex. It gathers local researchers at the Nantes region, and international experts from Brasil, France and USA. The project will investigate the stokastic loads exerted on offshore piles through aero-hydrodynamic simulations, and the pile deflections through centrifuge tests (SOLCYP+ project) and geotechnical modelling. Here is the dedicated web-page for the project. </p>
-        <hr>
+        <div class="Post_Row">
+            <div> <img class="Photo_LeftColumn" src="image/SLOOP_logo.png"> </div>
+            <div> <p> SLOOP Project receives funding from ORACLE Labex. It gathers local researchers at the Nantes region, and international experts from Brasil, France and USA. The project will investigate the stokastic loads exerted on offshore piles through aero-hydrodynamic simulations, and the pile deflections through centrifuge tests (SOLCYP+ project) and geotechnical modelling. Here is the dedicated web-page for the project. </p></div>     
+        </div>
     </body>
 </html>
