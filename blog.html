@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Academic Blog</title>
+        <style>
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            margin: 40px;
+            background-color: #f7f9fb;
+            color: #333;
+        }
+        /* Blog layout */
+        .blog-container {
+            max-width: 800px;
+            margin: auto;
+        }
+        .post {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+            overflow: hidden;
+        }
+        .post img {
+            width: 100%;
+            border-radius: 6px;
+        }
+        .post h2 {
+            color: #0066cc;
+            cursor: pointer;
+        }
+        .post-summary {
+            margin-top: 10px;
+        }
+        .post-content {
+            display: none;
+            margin-top: 15px;
+        }
+        .comment-section {
+            margin-top: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+        .comment-section h4 {
+            margin-bottom: 8px;
+        }
+        .comment-section textarea {
+            width: 100%;
+            height: 60px;
+            margin-bottom: 8px;
+        }
+        .comment-section button {
+            background-color: #0066cc;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .comment-list {
+            margin-top: 10px;
+        }
+        .comment {
+            background: #f1f1f1;
+            padding: 6px 10px;
+            border-radius: 4px;
+            margin-bottom: 5px;
+            }
+        /* === NEW: Make image and text side-by-side === */
+        .post-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;              /* spacing between image and text */
+        }
+        .post-header img {
+            width: 200px;           /* adjust as needed */
+            height: auto;
+            border-radius: 6px;
+            flex-shrink: 0;         /* prevents image from shrinking */
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="blog-container">
+            <h1>Blog</h1>
+
+            <!-- Blog Post 1 -->
+            <div class="post">
+                <div class = "post-header">
+                    <img src="image/SLOOP_logo.png" alt="Research image">
+                    <div>
+                        <h2><a href="blog1.html">October 2025 – Workshop Highlights</a></h2>
+                        <p class="post-summary">This month I attended the International Conference on Computational Physics and presented my latest work on machine-learning-assisted simulations...</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <script>
+        function togglePost(titleElem) {
+            // Adjusted: find the post-content relative to the header
+            const post = titleElem.closest('.post'); // finds the parent <div class="post">
+            const content = post.querySelector('.post-content'); // finds the content section inside it
+            content.style.display = (content.style.display === "block") ? "none" : "block";
+        }
+        function addComment(buttonElem) {
+            const textarea = buttonElem.previousElementSibling;
+            const commentText = textarea.value.trim();
+            if (commentText === "") return;
+            
+            const commentList = buttonElem.nextElementSibling;
+            const newComment = document.createElement("div");
+            newComment.classList.add("comment");
+            newComment.textContent = commentText;
+            
+            commentList.appendChild(newComment);
+            textarea.value = "";
+            }
+        </script>
+    </body>
+</html>

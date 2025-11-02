@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>October 2025 – Workshop Highlights</title>
+<style>
+/* === Basic Page Style === */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 40px auto;
+    background-color: #f7f9fb;
+    color: #333;
+    max-width: 800px;
+    line-height: 1.6;
+}
+
+/* === Links === */
+a {
+    color: #0066cc;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* === Image === */
+img {
+    width: 100%;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+
+/* === Comments Section === */
+.comment-section {
+    margin-top: 30px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+.comment-section h4 {
+    margin-bottom: 8px;
+}
+.comment-section textarea {
+    width: 100%;
+    height: 70px;
+    margin-bottom: 8px;
+    font-family: inherit;
+}
+.comment-section button {
+    background-color: #0066cc;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.comment-section button:hover {
+    background-color: #004c99;
+}
+
+/* === Displayed Comments === */
+.comment-list {
+    margin-top: 10px;
+}
+.comment {
+    background: #f1f1f1;
+    padding: 6px 10px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Back to main blog page -->
+<p><a href="blog.html">← Back to Blog</a></p>
+
+<!-- Blog Title -->
+<h1>October 2025 – Workshop Highlights</h1>
+
+<!-- Main Image -->
+<img src="image/SLOOP_logo.png" alt="Research image from the workshop">
+
+<!-- Blog Content -->
+<p>
+In October 2025, I attended the International Conference on Computational Physics (ICCP 2025), 
+where I presented my latest work on <strong>machine-learning-assisted simulations</strong> 
+of complex materials. The event provided an inspiring opportunity to exchange ideas with researchers 
+working on multi-scale modeling and data-driven approaches in physical sciences.
+</p>
+
+<p>
+During my talk, I discussed how neural-network potentials can bridge the gap between 
+quantum accuracy and large-scale efficiency. Several attendees expressed interest in potential collaborations, 
+particularly in applying these models to heterogeneous systems.
+</p>
+
+<p>
+Aside from my presentation, I participated in a roundtable discussion on 
+open-source computational frameworks and their role in reproducible research. 
+It was clear that open data and transparent workflows are becoming central to modern science.
+</p>
+
+<p>
+Looking ahead, I plan to integrate part of this work into my upcoming graduate course on 
+<em>Computational Materials Science</em> and to collaborate with a partner lab on developing 
+a benchmark dataset for metallic glasses.
+</p>
+
+<!-- Comment Section -->
+<div class="comment-section">
+  <h4>Leave a comment:</h4>
+  <textarea class="comment-input" placeholder="Write your comment..."></textarea><br>
+  <button onclick="addComment()">Submit</button>
+  <div class="comment-list"></div>
+</div>
+
+<script>
+const STORAGE_KEY = "comments_post1_replies";
+
+/* ---------- Load saved comments ---------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  const commentList = document.querySelector(".comment-list");
+  if (saved) {
+    const comments = JSON.parse(saved);
+    comments.forEach(c => renderComment(c, commentList));
+  }
+});
+
+/* ---------- Add new top-level comment ---------- */
+function addComment() {
+  const textarea = document.querySelector(".comment-input");
+  const commentText = textarea.value.trim();
+  if (!commentText) return;
+  const commentList = document.querySelector(".comment-list");
+
+  const newComment = { id: Date.now(), text: commentText, replies: [] };
+  renderComment(newComment, commentList);
+  saveCommentToStorage(newComment);
+  textarea.value = "";
+}
+
+/* ---------- Render a comment (and its replies) ---------- */
+function renderComment(comment, container) {
+  const commentDiv = document.createElement("div");
+  commentDiv.classList.add("comment");
+  commentDiv.dataset.id = comment.id;
+
+  const textDiv = document.createElement("div");
+  textDiv.textContent = comment.text;
+  commentDiv.appendChild(textDiv);
+
+  /* Reply button */
+  const replyBtn = document.createElement("button");
+  replyBtn.textContent = "Reply";
+  replyBtn.style.margin = "5px 5px 0 0";
+  replyBtn.style.fontSize = "0.8em";
+  replyBtn.onclick = () => showReplyBox(comment, commentDiv);
+  commentDiv.appendChild(replyBtn);
+
+  /* Delete button */
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "Delete";
+  deleteBtn.style.marginTop = "5px";
+  deleteBtn.style.fontSize = "0.8em";
+  deleteBtn.onclick = () => deleteComment(comment.id);
+  commentDiv.appendChild(deleteBtn);
+
+  /* Replies container */
+  const repliesContainer = document.createElement("div");
+  repliesContainer.classList.add("replies");
+  repliesContainer.style.marginLeft = "20px";
+  commentDiv.appendChild(repliesContainer);
+
+  container.appendChild(commentDiv);
+
+  /* Render existing replies */
+  if (comment.replies && comment.replies.length > 0) {
+    comment.replies.forEach(r => renderComment(r, repliesContainer));
+  }
+}
+
+/* ---------- Show reply input box ---------- */
+function showReplyBox(parentComment, parentDiv) {
+  if (parentDiv.querySelector(".reply-box")) return; // prevent duplicates
+
+  const replyBox = document.createElement("div");
+  replyBox.classList.add("reply-box");
+  replyBox.style.marginTop = "5px";
+
+  const textarea = document.createElement("textarea");
+  textarea.placeholder = "Write your reply...";
+  textarea.style.width = "90%";
+  textarea.style.height = "50px";
+
+  const sendBtn = document.createElement("button");
+  sendBtn.textContent = "Send";
+  sendBtn.style.marginLeft = "5px";
+  sendBtn.onclick = () => {
+    const text = textarea.value.trim();
+    if (!text) return;
+    const reply = { id: Date.now(), text, replies: [] };
+    addReplyToStorage(parentComment.id, reply);
+    const repliesContainer = parentDiv.querySelector(".replies");
+    renderComment(reply, repliesContainer);
+    replyBox.remove();
+  };
+
+  replyBox.appendChild(textarea);
+  replyBox.appendChild(sendBtn);
+  parentDiv.appendChild(replyBox);
+}
+
+/* ---------- Delete a comment (and its replies) ---------- */
+function deleteComment(id) {
+  const comments = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  const updated = removeCommentById(comments, id);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+  document.querySelector(`.comment[data-id="${id}"]`).remove();
+}
+
+/* ---------- Recursive helper to remove comment ---------- */
+function removeCommentById(list, id) {
+  return list
+    .filter(c => c.id !== id)
+    .map(c => ({ ...c, replies: removeCommentById(c.replies, id) }));
+}
+
+/* ---------- Save new top-level comment ---------- */
+function saveCommentToStorage(comment) {
+  let comments = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  comments.push(comment);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+}
+
+/* ---------- Add reply to correct parent in storage ---------- */
+function addReplyToStorage(parentId, reply) {
+  let comments = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  const addRecursively = (list) => {
+    list.forEach(c => {
+      if (c.id === parentId) {
+        c.replies.push(reply);
+      } else {
+        addRecursively(c.replies);
+      }
+    });
+  };
+  addRecursively(comments);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+}
+</script>
+
+
+</body>
+</html>
