@@ -48,8 +48,19 @@
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         background-color: lightgreen;
         text-align: center;
+        text-decoration: none;
         font-size: 20px;
         font-weight: bold;
+      }
+      .Home_R2_Nav-link{
+        display: block;         /* makes padding clickable */
+        padding: 10px 0;        /* added padding for better spacing */
+        text-decoration: none;  /* removed underline */
+        color: black;         /* default color */
+        transition: background-color 0.3s ease; /* smooth hover effect */
+      }
+      .Home_R2_Nav-link:hover {
+        background-color: lightblue; /* light green on hover */
       }
       .Home_R3{
         margin-top: 20px;
@@ -67,6 +78,12 @@
       }
       .Home_R4C2{
         background-color: lightgreen;
+      }
+      .Home_footer{
+        text-align: center;              /* center text */
+        padding: 15px 0;                 /* spacing */
+        background-color: lightgreen;  /* same as nav for consistency */font-size: 14px;
+        color: black;
       }
     </style>
   </head>
@@ -86,12 +103,12 @@
         </div>
       </div>
       <div class="Home_R2">
-        <div> <a href="index.html">Home</a> </div> 
-        <div> <a href="teaching.html">Teaching</a> </div>
-        <div> <a href="research_pub.html">Research</a> </div>
-        <div> <p>Engineering</p> </div>
-        <div> <a href="link.html">Link</a> </div>
-        <div> <a href="blog.html">Blog</a> </div>
+        <a href="index.html" class="Home_R2_Nav-link">Home</a>
+        <a href="teaching.html" class="Home_R2_Nav-link">Teaching</a>
+        <a href="research_pub.html" class="Home_R2_Nav-link">Research</a>
+        <a href="engineering.html" class="Home_R2_Nav-link">Engineering</a>
+        <a href="link.html" class="Home_R2_Nav-link">Link</a>
+        <a href="blog.html" class="Home_R2_Nav-link">Blog</a>
       </div>
       <div class="Home_R3">
         <h4>Short Biography</h4>
@@ -105,8 +122,12 @@
       </div>
       <div class="Home_R4">
         <div class="Home_R4C2">
+
         </div>
       </div>
     </div>
+    <footer class="Home_footer">
+      <p>&copy; 2019-2025 ZSLi. All rights reserved.</p>
+    </footer>
   </body>
 </html>
