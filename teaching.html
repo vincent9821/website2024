@@ -1,88 +1,114 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh">
   <head>
-    <title>Teaching</title>
+    <meta charset="UTF-8">                                                                            <!-- 请用 UTF-8 来正确显示中文、法文、符号 --> 
+    <title>Teaching | Nantes Université</title>
     <style>
-      .body{
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 14px;
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-      p{
-        margin: 0;
-      }
-      h4{
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 14px;
-      }
-      .Teaching{
-        display: flex;
-        flex-direction: column;
-      }
-      .Teaching_Course{
-        display: flex;
-        flex-direction: column;
-        background-color: lightblue;
-        text-indent: -15px;
-        padding-left: 15px;
-        margin-top: 10px;
-      }
-      .Teaching_Internship{
-        display: flex;
-        flex-direction: column;
-        background-color: lightgreen;
-        text-indent: -15px;
-        padding-left: 15px;
-        margin-top: 10px;
-      }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      margin: 40px;
+      color: #000;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    details {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: none;
+    }
+    details details {
+    margin-left: 16px;
+    padding-left: 12px;
+    border-left: 1px solid #ddd;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      user-select: none;
+      color: #222;
+    }
+    .file {
+      margin: 2px 0;
+      padding-left: 12px;
+      font-size: 0.95em;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
     </style>
   </head>
 
-  <body class="body">
-    <div class="Teaching">
-      <div class="Home_R1">
-        <div><h4>&bull; 2023-2024</h4></div>
-        <div>
-          <p>11. <a href="to be added" target="_blank">VRD_Practical work (8 &times; 4h),</a> 11/03/2024-17/05/2024, Bachelor 1-D, IUT-SN, Nantes Université.</p>
-          <p>10. <a href="to be added" target="_blank">VRD_Project (2 &times; 4h + 2 &times; 2h),</a> 16/01/2024-28/02/2024, Bachelor 1-D, IUT-SN, Nantes Université.</p>
-          <p>9. <a href="to be added" target="_blank">VRD_Tutorials (3 &times; 2h),</a> 11/03/2024-17/05/2024, Bachelor 1-D, IUT-SN, Nantes Université.</p>
-          <p>8. <a href="to be added" target="_blank">TTP2_Practical work (2 &times; 4h),</a> 16/01/2024-28/02/2024, Bachelor 1-B, IUT-SN, Nantes Université.</p>
-          <p>7. <a href="to be added" target="_blank">TTP2_Tutorials (2 &times; 4h),</a> 16/01/2024-28/02/2024, Bachelor 1-B, IUT-SN, Nantes Université.</p>
-          <p>6. <a href="to be added" target="_blank">Mathématiques2_Tutorials (8 &times; 2h),</a> 19/01/2024-01/03/2024, Bachelor 1-L, IUT-SN, Nantes Université.</p>
-          <p>5. <a href="to be added" target="_blank">LargeInfrastructure_Lecture (2 &times; 2h),</a> 05/12/2023 & 15/12/2023, Master 2, Ecole Centrale Nantes.</p>
-          <p>4. <a href="to be added" target="_blank">Electricité_Practical work (3 &times; 4h),</a> 28/11/2023–05/12/2023, Bachelor 2-L, IUT-SN, Nantes Université.</p>
-          <p>3. <a href="to be added" target="_blank">Electricité_Tutorials (1 &times; 2h),</a> 10/11/2023–10/11/2023, Bachelor 2-L, IUT-SN, Nantes Université.</p>
-          <p>2. <a href="to be added" target="_blank">Géotechnique1_Practical work (4 &times; 4h), </a> 21/09/2023–13/10/2023, Bachelor 2-L, IUT-SN, Nantes Université.</p>
-          <p>1. <a href="to be added" target="_blank">Géotechnique1_Tutorials (5 &times; 2h), </a> 06/09/2023–22/09/2023, Bachelor 2-K, IUT-SN, Nantes Université.</p>
-        </div>
-      </div>
+  <body>
+    <h1>Teaching</h1>
+    <details open>                                                                                        <!-- Nantes Université -->
+      <summary>Nantes University</summary>
+            <details>
+        <summary>Soil-Pile Interaction</summary>                                                          <!-- Soil-Pile Interaction -->
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- MAT1 -->
+        <summary>R1.02_MAT1</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- MAT2 -->
+        <summary>R2.01_MAT2</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- TTP2 -->
+        <summary>R2.07_TTP2</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- MAT3 -->
+        <summary>R3.01_MAT3</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- GEOTECH1 -->
+        <summary>R3.09_GEOTECH1</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- GTP -->
+        <summary>R3.12_GTP</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- TAB2 -->
+        <summary>R4.04_TAB2</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- TTP4 -->
+        <summary>R4.05_TTP4</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- GEOTECH2 -->
+        <summary>R4.07_GEOTECH2</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
 
-      <div class="Home_R30">
-        <div><h4>&bull; Before 2023</h4></div>
-        <div>
-          <p>4. <a href="https://mycourses.aalto.fi/course/view.php?id=35639" target="_blank">Adanced Soil Mechanics,</a> 27/02/2023–13/04/2023, Master of Geoengineering, Aalto University.</p>
-          <p>3. <a href="https://mycourses.aalto.fi/course/view.php?id=35640" target="_blank">Finite Element Method in Geoengineering,</a> 25/10/2022–02/12/2022, Master of Geoengineering, Aalto University.</p>
-          <p>2. <a href="https://mycourses.aalto.fi/course/view.php?id=32338" target="_blank">Numerical Methods in Geotechnics,</a> 19/04/2022–27/05/2022, Master of Geoengineering, Aalto University.</p>
-          <p>1. <a href="https://mycourses.aalto.fi/course/view.php?id=32337" target="_blank">Adanced Soil Mechanics,</a> 28/02/2022–10/04/2022, Master of Geoengineering, Aalto University.</p>
-        </div>
-      </div>
+    </details>
 
+    <details>                                                                                             <!-- Aalto University -->
+      <summary>Aalto University</summary>
+      <details>                                                                                           <!-- Advanced Soil Mechanics -->
+        <summary>Advanced Soil Mechanics</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- Numerical Methods in Geotechnics -->
+        <summary>Numerical Methods in Geotechnics</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+      <details>                                                                                           <!-- Finite Element Method in Geoengineering -->
+        <summary>Finite Element Method in Geoengineering</summary>
+        <p class="file"><a href="#">Introduction.pdf</a></p>
+      </details>
+    </details>
 
-    </div>
-
-    <div class="Teaching_Internship">
-      <div><h4>&bull; Internship</h4></div>
-      <div>
-        <p>6. Fromont-Coppin T. (2021) <a href="https://zhongsenli.com/wp-content/uploads/2022/02/Fromont-Coppin-2021-MSc_Compressed.pdf" target="_blank">Localised volume change of a stabilised soft clay.</a> Aalto University, Espoo, Finland.</p>
-        <p>5. Kronqvist I. (2021) <a href="https://zhongsenli.com/wp-content/uploads/2022/02/Kronqvist-2021-MSc.pdf" target="_blank">Small-strain stiffness of the intact and stabilised Malmi clay.</a> Aalto University, Espoo, Finland (in Finnish).</p>
-        <p>4. Paganoni O. (2020) <a href="https://zhongsenli.com/wp-content/uploads/2022/02/Paganoni-2020-MSc.pdf" target="_blank">Analysis of the mechanical behaviour of an intact soft clay.</a> Aalto University, Espoo, Finland.</p>
-        <p>3. Zhang L.-J. (2016) <a href="https://www.tandfonline.com/doi/full/10.1080/07373937.2018.1454939" target="_blank">Dewatering of sludge with osmotic technique</a>. Sun Yat-sen University, Guangzhou, China.</p>
-        <p>2. Ngo Bibinbe J.-N. (2014) Phénomènes d’orniérage et de matelassage des remblais compactés. Ecole Centrale Paris, Chatenay-Malabry, France (in French).</p>
-        <p>1. Sun H.-Q. (2013) <a href="https://mycourses.aalto.fi/course/view.php?id=32337" target="_blank">Characteristic and behaviour of unsaturated compacted clay under controlled suction.</a> Ecole Centrale Paris, Chatenay-Malabry, France.</p>
-      </div>
-    </div>
-  
+    <details>                                                                                             <!-- Others -->
+      <summary>Others</summary>
+    </details>
   </body>
 </html>
