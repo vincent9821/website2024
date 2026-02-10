@@ -1,71 +1,261 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Link</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surname NAME - Academic Profile</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <style>
-      .body{
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        margin-top: 0;
-        margin-bottom: 0;
+      /* --- 1. 全局基础样式 --- */
+      :root{
+        --primary-color: #2c3e50;
+        --accent-color: #3498db;
+        --bg-light: #f8f9fa;
       }
-      p{
+      body{
+        font-family: system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
         margin: 0;
+        padding: 0;
+        background-color: #fcfcfc;
+        color: #333;
       }
-      h4{
-        margin-top: 0;
-        margin-bottom: 0;
-        font-size: 14px;
+      .container{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+      h1 { font-size: 32px; color: var(--primary-color); margin: 0 0 10px 0; font-weight: 800; }
+      h2 { font-size: 24px; margin-top: 40px; margin-bottom: 20px;
+        padding-bottom: 8px; border-bottom: 1px solid #eee; font-weight: 700; 
+        color: var(--primary-color);
       }
-      .Link{
-        display: flex;
-        flex-direction: column;
+      h3 { font-size: 19px; color: #34495e; margin-top: 20px; margin-bottom: 10px; font-weight: 600; }
+      h4 { font-size: 16px; color: black; margin-top: 10px; margin-bottom: 5px; font-weight: 600; }
+      .intro-text { margin: 10px 0 20px; color: #666; font-style: italic; font-size: 0.95em; }
+
+
+ 
+      /* --- 第一行：个人信息（Header） --- */
+      .Home_R1_Header{
+        display: grid;
+        grid-template-columns: 160px 1fr; /* 恢复 160px */
+        gap: 20px;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 15px;  
       }
-      .Link_Mathematics{
-        display: flex;
-        flex-direction: column;
-        background-color: lightblue;
-        text-indent: -15px;
-        padding-left: 15px;
-        margin-top: 10px;
+      .Home_R1C1_Profile-img { width: 100%; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+      .Home_R1C1_Profile-img_Wrapper { padding: 0 15px; display: flex; justify-content: center; }   /* 照片大小可据padding值调节 */
+      .Home_R1_Header_info p { margin: 0; color: #555; }
+
+
+
+      /* --- 第二行：导航栏 --- */
+      .Home_R2_Nav {                                                      /* 第二行：导航栏自适应 */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));      /* 魔法逻辑：每个导航按钮至少 120px，放不下就自动换到下一行 */
+        background-color: var(--primary-color);                           /* 专业的深灰蓝色 */
+        border-radius: 4px;                                               /* 微小的圆角增加精致感 */
+        text-align: center;
+        margin-bottom: 20px;
       }
-      .Link_ComputerScience{
-        display: flex;
-        flex-direction: column;
-        background-color: lightgreen;
-        text-indent: -15px;
-        padding-left: 15px;
-        margin-top: 10px;
+      .Home_R2_Nav-link{
+        display: block;
+        padding: 10px 20px;                                               /* added padding for better spacing */
+        color: white;                                                   /* 文字改为白色 */
+        text-decoration: none;                                            /* removed underline */
+        font-weight: 600;                                                 /* 加粗字体 */
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
       }
-      .Link_Mechanics{
-        display: flex;
-        flex-direction: column;
-        background-color: lightblue;
-        text-indent: -15px;
-        padding-left: 15px;
-        margin-top: 10px;
-      }
-      .Link_SoilMechanics{
-        display: flex;
-        flex-direction: column;
-        background-color: lightgreen;
-        text-indent: -15px;
-        padding-left: 15px;
-        margin-top: 10px;
-      }
-      .Link_French{
-        display: flex;
-        flex-direction: column;
-        background-color: lightblue;
-        text-indent: -15px;
-        padding-left: 15px;
-        margin-top: 10px;
+      .Home_R2_Nav-link:hover {
+        background-color: #34495e;                                      /* 悬停时稍微变亮 */
+        color: var(--accent-color);                                       /* 悬停时文字变为亮蓝色 */
       }
 
+
+
+      /* --- 第三行：超链接 --- */
+      .Home_R3_Link {                                                      /* 第三行保持不变，它的容器是块级元素，默认就是自适应宽度的 */
+        padding: 10px 20px;                                               /* 格式：上下10 左右20px */
+        background-color: var(--bg-light);                                /* 极简的浅灰色背景 */
+        border-left: 5px solid var(--primary-color);                      /* 左侧加一条深色边框，增加学术稳重感 */
+        line-height: 1.7;
+        margin-bottom: 30px;                   
+      }
+      .Home_R3_Bio p { margin: 5px 0; }
+
+
+
+      /* --- 第四行：研究 --- */
+      .Home_R4_Research {                                                 /* 容器设置 */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));      /* 魔法代码：自动计算列数。如果空间不够 300px，就自动换行 */
+        gap: 20px;                                                        /* Increased gap for a cleaner look */
+        padding: 20px 0;
+      }
+      .Home_R4_Research_card {                                            /* 卡片样式 */
+        text-decoration: none;                                            /* 去掉链接下划线 */
+        color: #333;                                                    /* 文字颜色 */
+        transition: transform 0.3s ease;                                  /* 增加一个鼠标悬停动画 */
+      }
+      .Home_R4_Research_card:hover { transform: translateY(-5px); }       /* 悬停时微微上移，增加交互感 */
+      .Home_R4_Research_img-container {                                   /* 图片容器：固定纵横比 */
+        aspect-ratio: 16 / 9;                                             /* 强制图片比例统一，非常适合整齐的网格 */
+        overflow: hidden;
+        border-radius: 8px;
+        background-color: #f0f0f0;
+        border: 1px solid #eee;                                         /* Adds a subtle border like the screenshot */
+      }
+      .Home_R4_Research_img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;                                                /* 核心：自动裁剪不规则图片，确保铺满不变形 */
+      }
+
+
+
+      /* --- 第五行：教学 --- */
+      .Home_R5_Teaching { margin-top: 40px; }
+      .Home_R5_Intro-text { margin-bottom: 20px; color: #666; font-style: italic; }
+      .mySwiper {
+        max-width: 800px;                                                 /* 限制最大尺寸，您可以改成 600px 变得更小 */
+        margin: 20px auto;                                                /* 自动居中 */
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border: 1px solid #eee;
+        background: #fff;
+      }
+      .swiper-slide {
+        display: flex;
+        flex-direction: column;
+      }
+      .swiper-slide img,                                                /* Ensure Media (Video/Img) maintains a consistent, professional ratio */
+      .swiper-slide video {
+        width: 100%;
+        aspect-ratio: 16 / 9; 
+        object-fit: cover;
+        display: block;
+      }
+      .Home_R5_Teaching_Swiper-slide-caption {
+        padding: 12px;
+        background: #f8f9fa;
+        text-align: center;                                            /* 让标题和描述也居中显示，通常配合缩小的画廊更好看 */
+      }
+      .Home_R5_Teaching_Swiper-slide-caption h3 {
+        margin: 0 0 5px 0;
+        color: var(--primary-color);
+      }
+      .Home_R5_Teaching_Swiper-slide-caption p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #666;
+      }
+      .swiper-button-next, .swiper-button-prev {                      /* Fix Swiper Navigation Buttons */
+        color: var(--primary-color) !important;
+        transform: scale(0.7); /* Smaller, sleeker arrows */
+      }
+
+
+
+      /* --- 第六行：服务 --- */
+      .Home_R6_Service_Layout {
+        display: flex;
+        gap: 0;
+        background: #fff;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-top: 20px;
+      }
+      .Home_R6_Service_nav {                                             /* 左侧窄栏 */
+        flex: 0 0 180px;
+        background-color: #f8f9fa;
+        border-right: 1px solid #eee;
+      }
+      .Home_R6_Service_nav-item {
+        display: block; 
+        padding: 15px 20px; 
+        text-decoration: none; 
+        color: var(--primary-color);
+        font-weight: 600; 
+        border-bottom: 1px solid #eee; 
+        transition: all 0.3s;
+        cursor: pointer;
+        letter-spacing: 1px;
+      }
+      .Home_R6_Service_nav-item:hover, 
+      .Home_R6_Service_nav-item.active { background-color: var(--primary-color); color: var(--accent-color); }
+      .Home_R6_Service_detail { flex: 1; padding: 10px 25px; }
+      .Home_R6_Service_panel { display: none; }
+
+
+
+      /* --- 第七行：页脚 --- */
+      .Home_R7_footer {
+        margin-top: 50px;
+        text-align: center;
+        padding: 20px 0;
+        background-color: #f1f1f1;
+        font-size: 13px;
+        color: #666;
+      }
+
+
+
+      /* --- 手机端自适应 --- */
+      @media (max-width: 768px) {
+        .Home_R1_Header { grid-template-columns: 1fr; text-align: center; }
+        .Home_R1C1_Profile-img { width: 150px; margin: 0 auto; }
+        .Home_R6_Service_Layout { flex-direction: column; }
+        .Home_R6_Service_nav { flex: none; width: 100%; display: flex; flex-wrap: wrap; }
+        .Home_R6_Service_nav-item { flex: 1; text-align: center; padding: 10px 5px; font-size: 14px; }
+      }
+
+
+      body {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
     </style>
   </head>
-  <body class="body">
-    <div class="Link">
-      <div class="Link_Mathematics">
+
+
+
+
+  
+  <body oncontextmenu="return false;" onselectstart="return false;">
+    <div class="container">
+
+
+
+      <div class="Home_R1_Header">
+        <div class="Home_R1C1_Profile-img_Wrapper">
+          <img class="Home_R1C1_Profile-img" src="image/ZSLi_2019.webp" alt="Profile">
+        </div>
+        <div class="Home_R1_Header_info">
+          <h1>ZhongSen LI</h1>
+          <p><strong>Assistant Professor</strong></p>
+          <p>Nantes University | CNRS UMR 6183 | France</p>
+          <p>✉️ zhongsen.li(at)univ-nantes.fr | 📞 00 33 (0)2 40 17 86 41</p>
+        </div>
+      </div>
+
+
+
+      <nav class="Home_R2_Nav">
+        <a href="index.html"        class="Home_R2_Nav-link">Home</a>
+        <a href="research_pub.html" class="Home_R2_Nav-link">Research</a>
+        <a href="teaching.html"     class="Home_R2_Nav-link">Teaching</a>
+        <a href="engineering.html"  class="Home_R2_Nav-link">Engineering</a>
+        <a href="link.html"         class="Home_R2_Nav-link">Link</a>
+        <a href="blog.html"         class="Home_R2_Nav-link">Blog</a>
+      </nav>
+
+
+
+      <section class="Home_R3_Link">
         <div><h4>&bull; Mathematics</h4></div>
         <div>
           1. <a href="https://math.mit.edu/~gs/" target="_blank">Gilbert Strang at MIT</a>
@@ -74,52 +264,70 @@
           ||<a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/" target="_blank">Linear Algebra</a>
           ||<a href="https://ocw.mit.edu/courses/2-087-engineering-math-differential-equations-and-linear-algebra-fall-2014/" target="_blank">Engineering Math: DE&LA</a>
           ||<a href="https://ocw.mit.edu/courses/18-085-computational-science-and-engineering-i-fall-2008/" target="_blank">Mathematical Methods for Engineers I</a>
-          ||<a href="https://ocw.mit.edu/courses/18-086-mathematical-methods-for-engineers-ii-spring-2006/" target="_blank">Mathematical Methods for Engineers II</a>
-        </div> 
-      </div>
+          ||<a href="https://ocw.mit.edu/courses/18-086-mathematical-methods-for-engineers-ii-spring-2006/" target="_blank">Mathematical Methods for Engineers II</a>            
+        </div>
 
-      <div class="Link_ComputerScience">
         <div><h4>&bull; Computer Science</h4></div>
         <div>
-          <p>6. <a href="https://www.w3schools.com/" target="_blank">W3schools</a></p>
-          <p>5. <a href="https://docs.opencv.org/3.4/index.html" target="_blank">OpenSourceComputerVision</a>||<a href="https://pointclouds.org/" target="_blank">PointCloudLibrary</a></p>
-          <p>4. <a href="https://www.lix.polytechnique.fr/~maks/" target="_blank">Maks Ovsjanikov at Polytechnique</a></p>
-          <p>3. <a href="https://www.xuetangx.com/course/THU08021000430/16906163?channel=i.area.manual_search" target="_blank">Finite Element Analysis</a>||<a href="https://www.coursera.org/projects/simscale-for-engineering-simulations-fea-for-beginners" target="_blank">FEA for Beginners</a>||<a href="" target="_blank">FEM for Problems in Physics</a>||</p>
-          <p>2. <a href="https://games-cn.org/" target="_blank">Graphics & Mixed Environment Symposium</a>||<a href="https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html" target="_blank">GAMES101</a>||<a href="https://www.cs.utexas.edu/~huangqx/Games_3D_Recons_Understanding.html" target="_blank">GAMES203</a>||</p>
-          <p>1. <a href="http://valser.org/portal.php" target="_blank">Vision & Learning Seminar</a></p>
+            <p>6. <a href="https://www.w3schools.com/" target="_blank">W3schools</a></p>
+            <p>5. <a href="https://docs.opencv.org/3.4/index.html" target="_blank">OpenSourceComputerVision</a>||<a href="https://pointclouds.org/" target="_blank">PointCloudLibrary</a></p>
+            <p>4. <a href="https://www.lix.polytechnique.fr/~maks/" target="_blank">Maks Ovsjanikov at Polytechnique</a></p>
+            <p>3. <a href="https://www.xuetangx.com/course/THU08021000430/16906163?channel=i.area.manual_search" target="_blank">Finite Element Analysis</a>||<a href="https://www.coursera.org/projects/simscale-for-engineering-simulations-fea-for-beginners" target="_blank">FEA for Beginners</a>||<a href="" target="_blank">FEM for Problems in Physics</a>||</p>
+            <p>2. <a href="https://games-cn.org/" target="_blank">Graphics & Mixed Environment Symposium</a>||<a href="https://sites.cs.ucsb.edu/~lingqi/teaching/games101.html" target="_blank">GAMES101</a>||<a href="https://www.cs.utexas.edu/~huangqx/Games_3D_Recons_Understanding.html" target="_blank">GAMES203</a>||</p>
+            <p>1. <a href="http://valser.org/portal.php" target="_blank">Vision & Learning Seminar</a></p>
         </div>
-      </div>
 
-      <div class="Link_Mechanics">
         <div><h4>&bull; Mechanics</h4></div>
         <div>
-          <p>2. X-ray diffraction: <a href="http://prism.mit.edu/xray/" target="_blank">MIT</a></p>
-          <p>1. 理论|材料|结构|流体|连续介质|弹性|塑性|断裂</p>
+            <p>2. X-ray diffraction: <a href="http://prism.mit.edu/xray/" target="_blank">MIT</a></p>
+            <p>1. 理论|材料|结构|流体|连续介质|弹性|塑性|断裂</p>            
         </div>
-      </div>
 
-      <div class="Link_SoilMechanics">
         <div><h4>&bull; Soil Mechanics</h4></div>
         <div>
-          <p>6. <a href="https://www.eng.hokudai.ac.jp/labo/soilmech/nishimura/index_en.html" target="_blank">Soil Mechanics @ Hokaido Univ.</a></p>
-          <p>5. <a href="https://uclageo.com/" target="_blank">UCLA Geotechnical Engineering</a></p>
-          <p>4. <a href="https://csmbrannon.net/about/" target="_blank">Computational Solid Mechanics @ The Univ. of Utah</a></p>
-          <p>3. <a href="http://www.geoinvention.com/index.html" target="_blank">GeoInvention @ PolyU Hongkong</a></p>
-          <p>2. <a href="https://geomec.net/newsletter/" target="_blank">Grenoble GeoMechanics</a></p>
-          <p>1. <a href="https://alertgeomaterials.eu/" target="_blank">AlertGeomaterials</a></p>
+            <p>6. <a href="https://www.eng.hokudai.ac.jp/labo/soilmech/nishimura/index_en.html" target="_blank">Soil Mechanics @ Hokaido Univ.</a></p>
+            <p>5. <a href="https://uclageo.com/" target="_blank">UCLA Geotechnical Engineering</a></p>
+            <p>4. <a href="https://csmbrannon.net/about/" target="_blank">Computational Solid Mechanics @ The Univ. of Utah</a></p>
+            <p>3. <a href="http://www.geoinvention.com/index.html" target="_blank">GeoInvention @ PolyU Hongkong</a></p>
+            <p>2. <a href="https://geomec.net/newsletter/" target="_blank">Grenoble GeoMechanics</a></p>
+            <p>1. <a href="https://alertgeomaterials.eu/" target="_blank">AlertGeomaterials</a></p>
         </div>
-      </div>
 
-      <div class="Link_French">
-        <div><h4>&bull; Français</h4></div>
+        <div><h4>&bull; French with Alice</h4></div>
         <div>
-          <p>1. ORAL </p>
-          <p>2. ECRIT </p>
-          <p>https://www.bu.edu/moss/</p>
-          <p>https://www.youtube.com/watch?v=f08Y39UiC-o</p>
+            ||<a href="https://math.mit.edu/~gs/" target="_blank">FLE_W10</a>
+            ||<a href="" target="_blank">FLE_W11</a>        
         </div>
-      </div>
-    </div>
+
+
+
+
+
+    <footer class="Home_R7_footer">
+      &copy; 2019-2026 ZSLi. Built with passion for science & engineering.
+    </footer>
+  </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: { delay: 5000, disableOnInteraction: true },                   // 用户操作后停止自动轮播，方便观看视频
+        pagination: { el: ".swiper-pagination", clickable: true },
+        navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" },
+        on: {
+          slideChange: function () {
+            document.querySelectorAll('video').forEach(v => v.pause());          // 切换幻灯片时暂停所有视频
+          }
+        }
+      });
+
+      function showService(type, element) {
+        document.querySelectorAll('.Home_R6_Service_panel').forEach(panel => panel.style.display = 'none');     // 1. 隐藏所有内容面板
+        document.getElementById('service-' + type).style.display = 'block';                                     // 2. 显示点击的那个面板
+        document.querySelectorAll('.Home_R6_Service_nav-item').forEach(item => item.classList.remove('active'));// 3. 更新左侧按钮的激活状态
+        element.classList.add('active');
+      }
+    </script>
   </body>
-</html>
 </html>
