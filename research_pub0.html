@@ -112,19 +112,41 @@
         /* --- 手机端自适应 --- */
         @media (max-width: 768px) {
             .Home_R1_Header { 
-              display: flex; 
-              flex-direction: column; 
-              align-items: center; 
-              text-align: center; 
-              gap: 15px;
+                /* 强制覆盖 Grid，改为上下堆叠 */
+                display: block !important; 
+                text-align: center;
+                margin-top: 10px;
             }
-            .Home_R1C1_Profile-img_Wrapper { padding: 0; }               /* 移除手机端的内边距，确保完全居中 */
-            .Home_R1C1_Profile-img { width: 150px; margin: 0 auto; }
-            .Home_R1_Header_info { width: 100%; }                        /* 确保信息栏占满宽度 */
-            .Home_R2_Nav { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
-            .Home_R6_Service_Layout { flex-direction: column; }
-            .Home_R6_Service_nav { flex: none; width: 100%; display: flex; flex-wrap: wrap; }
-            .Home_R6_Service_nav-item { flex: 1; text-align: center; padding: 10px 5px; font-size: 14px; }
+
+            .Home_R1C1_Profile-img_Wrapper { 
+                padding: 0;
+                margin-bottom: 15px; /* 照片和文字之间留点空隙 */
+                display: flex;
+                justify-content: center;
+            }
+
+            .Home_R1C1_Profile-img { 
+                width: 140px; /* 手机端照片适当缩小 */
+                height: auto;
+                margin: 0 auto; 
+            }
+
+            .Home_R1_Header_info { 
+                width: 100%; 
+            }
+            
+            .Home_R1_Header_info h1 {
+                font-size: 26px; /* 手机端标题稍微调小，避免折行太难看 */
+            }
+
+            /* 导航栏优化：每行显示 3 个按钮，更适合手机点击 */
+            .Home_R2_Nav { 
+                grid-template-columns: repeat(3, 1fr); 
+            }
+            .Home_R2_Nav-link {
+                padding: 8px 2px;
+                font-size: 13px;
+            }
         }
 
 
