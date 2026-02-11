@@ -91,6 +91,10 @@
           font-weight: 500;
           letter-spacing: -0.1px; 
         }
+        .Pub-item, .file-link, a {    /* 强制长链接和长单词自动换行 */
+          word-break: break-all;      /* 强制在任何字符间换行 */
+          overflow-wrap: break-word;  /* 更好的兼容性 */
+        }
         .Pub-item .pdf { color: #e74c3c !important; text-decoration: none; font-size: 12px; margin-left: 5px; font-weight: bold; }
 
         /* --- 4. Footer --- */
@@ -107,8 +111,17 @@
 
         /* --- 手机端自适应 --- */
         @media (max-width: 768px) {
-            .Home_R1_Header { grid-template-columns: 1fr; text-align: center; }
+            .Home_R1_Header { 
+              display: flex; 
+              flex-direction: column; 
+              align-items: center; 
+              text-align: center; 
+              gap: 15px;
+            }
+            .Home_R1C1_Profile-img_Wrapper { padding: 0; }               /* 移除手机端的内边距，确保完全居中 */
             .Home_R1C1_Profile-img { width: 150px; margin: 0 auto; }
+            .Home_R1_Header_info { width: 100%; }                        /* 确保信息栏占满宽度 */
+            .Home_R2_Nav { grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); }
             .Home_R6_Service_Layout { flex-direction: column; }
             .Home_R6_Service_nav { flex: none; width: 100%; display: flex; flex-wrap: wrap; }
             .Home_R6_Service_nav-item { flex: 1; text-align: center; padding: 10px 5px; font-size: 14px; }
