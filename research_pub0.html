@@ -20,7 +20,7 @@
             background-color: #fcfcfc;
             color: #333;
         }
-        .container{ max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .container{ max-width: 1200px; margin: 0 auto; padding: 0 20px; overflow-x: hidden;}
         h1 { font-size: 32px; color: var(--primary-color); margin: 0 0 10px 0; font-weight: 800; }
         h2 { font-size: 24px; margin-top: 40px; margin-bottom: 20px;
             padding-bottom: 8px; border-bottom: 1px solid #eee; font-weight: 700; 
@@ -81,8 +81,9 @@
           letter-spacing: -0.1px;                               /* 缩小字间距，让字符靠得更近 */
           line-height: 1.4;                                     /* 减小行高，垂直方向更紧凑 */
           margin-bottom: 6px;                                   /* 减小条目之间的距离 */
-          padding-left: 10px;
-          text-indent: -17px;
+          padding-left: 1.5em;
+          text-indent: -1.5em;
+          overflow-wrap: anywhere;
           color: black;
         }
         .Pub-item .title {
