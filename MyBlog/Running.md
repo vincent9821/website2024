@@ -1,6 +1,6 @@
 <div style="font-family: 'Courier New', Courier, monospace; text-align: justify; max-width: 1200px; margin: auto;">
     <p style="font-weight: bold; border-left: 3px solid #000; padding-left: 10px; margin: 10px 5px 0px 0px;">
-        Une course de 10 km
+        Une course de 10 km_15/03/26
     </p>
     4 km : La fatigue frappe.<br>
     5 km : Le mental flanche. Envie de se contenter de 6 ou 8 km.<br>
