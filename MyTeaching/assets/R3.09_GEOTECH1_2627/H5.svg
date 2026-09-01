@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- H5 — Coupe schématique d'une excavation protégée par palplanches. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-labelledby="h5-title h5-desc">
+  <title id="h5-title">H5 — Écoulement autour d'un rideau de palplanches</title>
+  <desc id="h5-desc">Coupe d'une excavation de 6,7 m près d'une berge rocheuse, avec dépôt de sable, socle rocheux, niveaux d'eau et réseau d'écoulement autour des palplanches.</desc>
+  <defs>
+    <marker id="h5-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 5 L 10 0 L 10 10 Z" fill="#222"/>
+    </marker>
+    <pattern id="h5-sand" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1" fill="#aaa"/>
+      <circle cx="9" cy="8" r="1.2" fill="#8f8f8f"/>
+    </pattern>
+    <pattern id="h5-rock" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M 0 14 L 14 0 M 8 16 L 16 8" stroke="#a2a2a2" stroke-width="1"/>
+    </pattern>
+    <clipPath id="h5-sand-clip">
+      <path d="M 95 200 H 330 V 260 H 600 C 610 315 608 370 585 413 C 470 451 250 460 95 440 Z"/>
+    </clipPath>
+  </defs>
+  <style>
+    text { font-family: "Noto Sans", "Noto Sans SC", Arial, sans-serif; font-size: 14px; fill: #222; }
+    .outline { fill: none; stroke: #222; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .thin { fill: none; stroke: #555; stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+    .water-fill { fill: #dceeff; }
+    .waterline { fill: none; stroke: #4e91d8; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+    .flowline { fill: none; stroke: #555; stroke-width: 1.1; vector-effect: non-scaling-stroke; }
+    .equipotential { fill: none; stroke: #777; stroke-width: 1; stroke-dasharray: 6 5; vector-effect: non-scaling-stroke; }
+    .dimension { fill: none; stroke: #222; stroke-width: 1.05; marker-start: url(#h5-arrow); marker-end: url(#h5-arrow); vector-effect: non-scaling-stroke; }
+  </style>
+  <!-- Socle et berge rocheuse -->
+  <path d="M 72 438 C 230 462 455 462 585 418 C 620 390 620 305 620 220 C 620 145 628 82 654 45 C 668 26 684 18 708 16 L 780 16 V 492 H 72 Z" fill="#d4d4d4"/>
+  <path d="M 72 438 C 230 462 455 462 585 418 C 620 390 620 305 620 220 C 620 145 628 82 654 45 C 668 26 684 18 708 16" class="outline"/>
+  <path d="M 72 438 C 230 462 455 462 585 418 L 585 492 H 72 Z" fill="url(#h5-rock)" opacity="0.65"/>
+  <!-- Dépôt de sable -->
+  <path d="M 95 200 H 330 V 260 H 600 C 610 315 608 370 585 413 C 470 451 250 460 95 440 Z" fill="#ededed"/>
+  <path d="M 95 200 H 330 V 260 H 600 C 610 315 608 370 585 413 C 470 451 250 460 95 440 Z" fill="url(#h5-sand)" opacity="0.62"/>
+  <path d="M 95 200 H 330 M 330 260 H 600" class="outline"/>
+  <!-- Eau du lac et niveau résiduel dans l'excavation -->
+  <rect class="water-fill" x="95" y="115" width="235" height="85" opacity="0.8"/>
+  <line class="waterline" x1="95" y1="115" x2="330" y2="115"/>
+  <line class="waterline" x1="340" y1="260" x2="600" y2="260"/>
+  <!-- Rideau de palplanches -->
+  <path d="M 326 78 V 382 L 332 393 L 338 382 V 78" fill="#bdbdbd" stroke="#222" stroke-width="1.8"/>
+  <line x1="332" y1="78" x2="332" y2="390" stroke="#222" stroke-width="1"/>
+  <!-- Réseau d'écoulement, limité au dépôt de sable -->
+  <g clip-path="url(#h5-sand-clip)">
+    <path class="flowline" d="M 285 200 C 274 274 282 347 332 389 C 390 358 422 307 452 260"/>
+    <path class="flowline" d="M 242 200 C 222 300 254 380 332 414 C 430 398 488 326 515 260"/>
+    <path class="flowline" d="M 195 200 C 168 330 236 425 348 440 C 488 444 554 345 570 260"/>
+    <path class="equipotential" d="M 270 292 Q 332 388 401 300"/>
+    <path class="equipotential" d="M 232 266 Q 332 422 454 276"/>
+    <path class="equipotential" d="M 190 238 Q 332 452 515 265"/>
+    <path class="equipotential" d="M 145 214 Q 332 474 574 270"/>
+  </g>
+  <!-- Symboles de niveau d'eau -->
+  <g class="waterline" transform="translate(290 115)">
+    <path d="M -12 -18 H 12 L 0 -3 Z"/>
+    <line x1="-15" y1="8" x2="15" y2="8" opacity="0.55"/>
+    <line x1="-8" y1="14" x2="8" y2="14" opacity="0.35"/>
+  </g>
+  <g class="waterline" transform="translate(520 260)">
+    <path d="M -12 -18 H 12 L 0 -3 Z"/>
+    <line x1="-15" y1="8" x2="15" y2="8" opacity="0.55"/>
+    <line x1="-8" y1="14" x2="8" y2="14" opacity="0.35"/>
+  </g>
+  <!-- Cotations -->
+  <line class="thin" x1="340" y1="96" x2="340" y2="260"/>
+  <line class="thin" x1="600" y1="96" x2="600" y2="260"/>
+  <line class="dimension" x1="344" y1="98" x2="596" y2="98"/>
+  <text x="470" y="88" font-size="17" text-anchor="middle">6,7 m</text>
+  <line class="dimension" x1="215" y1="119" x2="215" y2="196"/>
+  <text x="203" y="162" font-size="17" text-anchor="end">4,0 m</text>
+  <line class="dimension" x1="365" y1="119" x2="365" y2="256"/>
+  <text x="377" y="194" font-size="17">5,4 m</text>
+  <line class="dimension" x1="275" y1="204" x2="275" y2="378"/>
+  <text x="263" y="295" font-size="17" text-anchor="end">4,0 m</text>
+  <line class="dimension" x1="130" y1="204" x2="130" y2="434"/>
+  <text x="118" y="325" font-size="17" text-anchor="end">5,8 m</text>
+  <!-- Libellés -->
+  <text x="250" y="82" font-size="18" text-anchor="end">Palplanches</text>
+  <line class="thin" x1="258" y1="78" x2="320" y2="78"/>
+  <text x="690" y="70" font-size="18" text-anchor="middle">Berge rocheuse</text>
+  <text x="100" y="190" font-size="16" text-anchor="end">Fond du lac</text>
+  <text x="475" y="248" font-size="18" text-anchor="middle">Excavation</text>
+  <text x="505" y="333" font-size="18" text-anchor="middle">Dépôt de sable</text>
+  <text x="180" y="472" font-size="18" text-anchor="middle">Socle rocheux</text>
+  <text x="400" y="488" font-size="17" font-weight="600" text-anchor="middle">Coupe</text>
+</svg>

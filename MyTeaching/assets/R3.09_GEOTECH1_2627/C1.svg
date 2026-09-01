@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- C1 — Profil de sol. Échelle verticale du dessin : 45 unités/m. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 245" width="760" height="245" role="img" aria-labelledby="c1-title c1-desc">
+  <title id="c1-title">C1 — Coupe de sable grossier</title>
+  <desc id="c1-desc">Sable grossier sec de zéro à 1,2 m, puis sable grossier à vingt-trois pour cent jusqu'à 3,6 m.</desc>
+  <style>
+    text { font-family: "Noto Sans", "Noto Sans SC", Arial, sans-serif; font-size: 14px; fill: #222; }
+    .boundary { fill: none; stroke: #222; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+    .water-boundary { fill: none; stroke: #666; stroke-width: 1.2; stroke-dasharray: 5 4; vector-effect: non-scaling-stroke; }
+    .water-symbol { fill: none; stroke: #222; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  </style>
+  <!-- Profondeurs : y(0 m)=38 ; y(1,2 m)=92 ; y(3,6 m)=200. -->
+  <line class="boundary" x1="140" y1="38" x2="700" y2="38"/>
+  <line class="water-boundary" x1="140" y1="92" x2="700" y2="92"/>
+  <line class="boundary" x1="140" y1="200" x2="700" y2="200" opacity="0.55"/>
+  <g font-size="17" text-anchor="end">
+    <text x="120" y="44">0 T.N.</text>
+    <text x="120" y="98">1.2 m</text>
+    <text x="120" y="206">3.6 m</text>
+  </g>
+  <text x="420" y="70" font-size="19" text-anchor="middle">Sable grossier sec</text>
+  <g text-anchor="middle">
+    <text x="420" y="139" font-size="19">Sable grossier</text>
+    <text x="420" y="166" font-size="17"><tspan font-style="italic">w</tspan><tspan dx="5">= 23%</tspan></text>
+  </g>
+  <g class="water-symbol" transform="translate(180 92)">
+    <path d="M -12 -24 H 12 L 0 -8 Z"/>
+    <line x1="-16" y1="8" x2="16" y2="8" opacity="0.55"/>
+    <line x1="-8" y1="15" x2="8" y2="15" opacity="0.35"/>
+  </g>
+</svg>

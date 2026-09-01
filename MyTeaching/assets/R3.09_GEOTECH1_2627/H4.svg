@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- H4 — Montage à charge constante. Échelle verticale : 120 unités/m. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 350" width="760" height="350" role="img" aria-labelledby="h4-title h4-desc">
+  <title id="h4-title">H4 — Écoulement vertical dans un échantillon</title>
+  <desc id="h4-desc">Échantillon de 1,2 m dans un montage de hauteur 1,7 m, avec une hauteur d'eau aval de 0,4 m.</desc>
+  <defs>
+    <marker id="h4-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 5 L 10 0 L 10 10 Z" fill="#222"/>
+    </marker>
+    <pattern id="h4-soil" width="11" height="11" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="3" r="1.1" fill="#9b8a63"/>
+      <circle cx="8" cy="7" r="1" fill="#b7a77f"/>
+      <circle cx="4" cy="10" r="0.8" fill="#c9b98d"/>
+    </pattern>
+  </defs>
+  <style>
+    text { font-family: "Noto Sans", "Noto Sans SC", Arial, sans-serif; font-size: 14px; fill: #222; }
+    .wall { fill: none; stroke: #111; stroke-width: 4; stroke-linejoin: round; stroke-linecap: square; vector-effect: non-scaling-stroke; }
+    .thin { fill: none; stroke: #555; stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+    .water-fill { fill: #dceeff; }
+    .waterline { fill: none; stroke: #4e91d8; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+    .dimension { fill: none; stroke: #222; stroke-width: 1.1; marker-start: url(#h4-arrow); marker-end: url(#h4-arrow); vector-effect: non-scaling-stroke; }
+  </style>
+  <!-- y haut=45 ; y bas=249 : 1,7 m. Sol : y=105 à 249 : 1,2 m. Aval : 48 unités = 0,4 m. -->
+  <rect class="water-fill" x="212" y="45" width="158" height="60" opacity="0.85"/>
+  <rect x="220" y="105" width="140" height="144" fill="url(#h4-soil)"/>
+  <rect class="water-fill" x="370" y="201" width="150" height="48" opacity="0.85"/>
+  <path class="wall" d="M 212 45 V 249 H 520 V 201"/>
+  <line class="wall" x1="370" y1="45" x2="370" y2="249"/>
+  <line class="waterline" x1="214" y1="45" x2="368" y2="45"/>
+  <line class="waterline" x1="372" y1="201" x2="518" y2="201"/>
+  <line class="thin" x1="220" y1="105" x2="360" y2="105" stroke-dasharray="5 4"/>
+  <!-- Symboles des niveaux d'eau -->
+  <g class="waterline" transform="translate(290 45)">
+    <path d="M -12 -18 H 12 L 0 -3 Z"/>
+    <line x1="-15" y1="8" x2="15" y2="8" opacity="0.55"/>
+    <line x1="-8" y1="14" x2="8" y2="14" opacity="0.35"/>
+  </g>
+  <g class="waterline" transform="translate(455 201)">
+    <path d="M -12 -18 H 12 L 0 -3 Z"/>
+    <line x1="-15" y1="8" x2="15" y2="8" opacity="0.55"/>
+    <line x1="-8" y1="14" x2="8" y2="14" opacity="0.35"/>
+  </g>
+  <!-- Cotations -->
+  <line class="dimension" x1="180" y1="49" x2="180" y2="245"/>
+  <text x="166" y="153" font-size="17" text-anchor="end">1,7 m</text>
+  <line class="dimension" x1="338" y1="109" x2="338" y2="245"/>
+  <text x="326" y="183" font-size="17" text-anchor="end">1,2 m</text>
+  <line class="dimension" x1="545" y1="205" x2="545" y2="245"/>
+  <text x="558" y="229" font-size="17">0,4 m</text>
+</svg>

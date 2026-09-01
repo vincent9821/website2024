@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+可维护 SVG：2.4 m 干土层剖面
+
+当前竖向计算：
+  基准比例       = 30 SVG units/m
+  竖向放大系数   = 2
+  土层图示高度   = 2.4 × 30 × 2 = 144
+  顶面 y         = 50
+  底面 y         = 50 + 144 = 194
+  土层中心 y     = (50 + 194) / 2 = 122
+  画布高度       = 194 + 50 = 244
+
+如果将来修改深度或竖向放大系数，需要同步修改：
+  1. viewBox 和 height 中的画布高度 244；
+  2. soil-information 的 translate(420 122) 中的 122；
+  3. bottom-boundary 的 translate(0 194) 中的 194；
+  4. 深度文字 2.4 m；
+  5. 竖向放大说明 ×2。
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 760 244"
+     width="760"
+     height="244"
+     role="img"
+     aria-labelledby="title description">
+  <title id="title">Profil de sol sec jusqu'à 2.4 mètres</title>
+  <desc id="description">Couche de sol sec représentée avec une exagération verticale de deux.</desc>
+
+  <style>
+    text {
+      font-family: "Noto Sans", "Noto Sans SC", Arial, sans-serif;
+      fill: #222222;
+    }
+    .boundary {
+      fill: none;
+      stroke: #222222;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+    .water-symbol {
+      fill: none;
+      stroke: #222222;
+      stroke-width: 1.5;
+      vector-effect: non-scaling-stroke;
+    }
+    .scale-note {
+      fill: #666666;
+      font-size: 13px;
+      font-style: italic;
+    }
+  </style>
+
+  <!-- 顶面：自然地面，固定在 y = 50 -->
+  <g id="top-boundary">
+    <line class="boundary" x1="140" y1="50" x2="700" y2="50"/>
+    <text x="120" y="56" font-size="17" text-anchor="end">0 T.N.</text>
+  </g>
+
+  <!-- 土层文字：122 是当前土层中心的 y 坐标 -->
+  <g id="soil-information" transform="translate(420 122)" text-anchor="middle">
+    <text x="0" y="-13" font-size="19">Sol sec</text>
+    <text x="0" y="17" font-size="17">
+      <tspan font-style="italic">e</tspan><tspan dx="5">= 0.65 ;</tspan><tspan dx="6" font-style="italic">γₛ</tspan><tspan dx="5">= 26.5 kN/m³</tspan>
+    </text>
+  </g>
+
+  <!-- 底面组：194 是当前 2.4 m 深度对应的 y 坐标 -->
+  <g id="bottom-boundary" transform="translate(0 194)">
+    <line class="boundary" x1="140" y1="0" x2="700" y2="0"/>
+    <text x="120" y="6" font-size="17" text-anchor="end">2.4 m</text>
+
+    <!-- 水位符号：所有坐标都相对于底面 y = 0 -->
+    <g id="water-level-symbol" class="water-symbol" transform="translate(180 0)">
+      <path d="M -12 -27 H 12 L 0 -11 Z"/>
+      <line x1="-16" y1="9" x2="16" y2="9" opacity="0.55"/>
+      <line x1="-8" y1="17" x2="8" y2="17" opacity="0.35"/>
+    </g>
+  </g>
+</svg>

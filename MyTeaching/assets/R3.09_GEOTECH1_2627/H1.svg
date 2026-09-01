@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- H1 — Perméamètre à charge constante. Les cotes sont indicatives. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" width="760" height="390" role="img" aria-labelledby="h1-title h1-desc">
+  <title id="h1-title">H1 — Perméamètre à charge constante</title>
+  <desc id="h1-desc">Montage hydraulique avec réservoir amont, échantillon de sol de 0,55 m et différence de charge de 0,35 m.</desc>
+  <defs>
+    <marker id="h1-arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 5 L 10 0 L 10 10 Z" fill="#222"/>
+    </marker>
+    <pattern id="h1-soil" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="4" r="1.2" fill="#8c8c8c"/>
+      <circle cx="9" cy="9" r="1" fill="#aaa"/>
+    </pattern>
+  </defs>
+  <style>
+    text { font-family: "Noto Sans", "Noto Sans SC", Arial, sans-serif; font-size: 14px; fill: #222; }
+    .apparatus { fill: none; stroke: #222; stroke-width: 2.2; stroke-linejoin: round; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .thin { fill: none; stroke: #555; stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+    .water { fill: #dceeff; stroke: none; }
+    .waterline { fill: none; stroke: #4e91d8; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+    .dimension { fill: none; stroke: #222; stroke-width: 1.1; marker-start: url(#h1-arrow); marker-end: url(#h1-arrow); vector-effect: non-scaling-stroke; }
+  </style>
+  <!-- Robinet et alimentation amont -->
+  <g id="tap" class="apparatus">
+    <path d="M 166 48 H 211 V 58 H 198 V 70"/>
+    <path d="M 178 48 V 39 H 198"/>
+    <path d="M 184 39 V 31 M 176 31 H 192"/>
+    <path d="M 198 70 C 198 77 203 80 203 87"/>
+  </g>
+  <path class="waterline" d="M 203 76 C 199 82 199 88 203 94 C 207 88 207 82 203 76 Z"/>
+  <!-- Réservoir amont -->
+  <path class="water" d="M 155 112 H 250 V 172 H 155 Z" opacity="0.65"/>
+  <path class="apparatus" d="M 155 98 V 172 H 250 V 98"/>
+  <line class="waterline" x1="158" y1="112" x2="247" y2="112"/>
+  <path class="waterline" d="M 176 120 h 28 m-19 7 h 20" opacity="0.55"/>
+  <!-- Tuyau en U reliant l'amont au bas du perméamètre -->
+  <path class="apparatus" d="M 205 172 V 326 H 338 V 315"/>
+  <path class="apparatus" d="M 221 172 V 310 H 322 V 299"/>
+  <!-- Cellule du perméamètre -->
+  <path class="water" d="M 322 150 H 450 V 315 H 322 Z" opacity="0.5"/>
+  <rect x="322" y="180" width="128" height="110" fill="url(#h1-soil)" stroke="#555" stroke-width="1"/>
+  <path class="apparatus" d="M 322 136 V 330 H 450 V 136"/>
+  <line class="waterline" x1="325" y1="150" x2="447" y2="150"/>
+  <line class="thin" x1="322" y1="180" x2="450" y2="180"/>
+  <line class="thin" x1="322" y1="290" x2="450" y2="290"/>
+  <text x="386" y="242" font-size="20" text-anchor="middle">SOL</text>
+  <!-- Déversoir aval -->
+  <path class="apparatus" d="M 450 150 H 486 V 165"/>
+  <path class="waterline" d="M 486 165 C 482 173 482 181 486 189 C 490 181 490 173 486 165 Z"/>
+  <!-- Cotations -->
+  <g id="dimensions">
+    <line class="thin" x1="450" y1="112" x2="535" y2="112"/>
+    <line class="thin" x1="450" y1="150" x2="535" y2="150"/>
+    <line class="dimension" x1="520" y1="116" x2="520" y2="146"/>
+    <text x="532" y="136" font-size="17">0,35 m</text>
+    <line class="thin" x1="450" y1="180" x2="535" y2="180"/>
+    <line class="thin" x1="450" y1="290" x2="535" y2="290"/>
+    <line class="dimension" x1="520" y1="184" x2="520" y2="286"/>
+    <text x="532" y="241" font-size="17">0,55 m</text>
+  </g>
+</svg>

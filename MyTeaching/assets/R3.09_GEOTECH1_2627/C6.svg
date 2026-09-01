@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- C6 — Profil de sol. Échelle verticale du dessin : 20 unités/m. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 285" width="760" height="285" role="img" aria-labelledby="c6-title c6-desc">
+  <title id="c6-title">C6 — Coupe de limon, sable et grave</title>
+  <desc id="c6-desc">Limon de zéro à six mètres, sable de six à neuf mètres, puis grave.</desc>
+  <style>
+    text { font-family: "Noto Sans", "Noto Sans SC", Arial, sans-serif; font-size: 14px; fill: #222; }
+    .boundary { fill: none; stroke: #222; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+    .secondary { stroke: #777; }
+    .water-symbol { fill: none; stroke: #222; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+  </style>
+  <!-- Profondeurs : y(0 m)=38 ; y(6 m)=158 ; y(9 m)=218. -->
+  <line class="boundary" x1="140" y1="38" x2="700" y2="38"/>
+  <line class="boundary secondary" x1="140" y1="158" x2="700" y2="158" opacity="0.65"/>
+  <line class="boundary secondary" x1="140" y1="218" x2="700" y2="218" opacity="0.65"/>
+  <g font-size="17" text-anchor="end">
+    <text x="120" y="44">0 T.N.</text>
+    <text x="120" y="164">6 m</text>
+    <text x="120" y="224">9 m</text>
+  </g>
+  <text x="420" y="99" font-size="18" text-anchor="middle">
+    <tspan>Limon, </tspan><tspan font-style="italic">γ</tspan><tspan dx="4">= 20 kN/m³</tspan>
+  </text>
+  <g text-anchor="middle">
+    <text x="420" y="185" font-size="18">Sable, <tspan font-style="italic">e</tspan><tspan dx="4">= 0.6</tspan></text>
+    <text x="420" y="208" font-size="17"><tspan font-style="italic">γₛ</tspan><tspan dx="4">= 26.5 kN/m³</tspan></text>
+    <text x="420" y="255" font-size="18">Grave</text>
+  </g>
+  <g class="water-symbol" transform="translate(180 158)">
+    <path d="M -12 -24 H 12 L 0 -8 Z"/>
+    <line x1="-16" y1="8" x2="16" y2="8" opacity="0.55"/>
+    <line x1="-8" y1="15" x2="8" y2="15" opacity="0.35"/>
+  </g>
+</svg>
